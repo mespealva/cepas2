@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @enologo.nombre %>
+</p>
+
+<p>
+  <strong>Edad:</strong>
+  <%= @enologo.edad %>
+</p>
+
+<p>
+  <strong>Nacionalidad:</strong>
+  <%= @enologo.nacionalidad %>
+</p>
+
+<p>
+  <strong>Revista(s):</strong> <br>
+  <% @enologo.enologo_revists.each do |enologo|%>
+      <%= enologo.revist.nombre %>
+</p>
+<%end%>
+<p>
+  <strong>Cargo:</strong>
+<% @enologo.enologo_revists.each do |enologo|%>
+  <%= enologo.cargo %>
+</p>
+<%end%>
+<% if current_user.admi?%>
+  <%= link_to 'Edit', edit_enologo_path(@enologo) %>
+<%end%>
+<%= link_to 'Back', enologos_path %>

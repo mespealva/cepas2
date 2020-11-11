@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @vino.nombre %>
+</p>
+<p> <strong>Nota:</strong>
+  <%= @vino.nota %>
+</p>
+
+<% if current_user.admi?%>
+  <%= link_to 'Edit', edit_vino_path(@vino) %> |
+<%end%>
+  <%= link_to 'Back', vinos_path %>
